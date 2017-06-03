@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{612E09E8-CA2C-43B4-86B6-389C86296BDF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>VelocityDBTest</RootNamespace>
+    <AssemblyName>VelocityDBTest</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VelocityDb, Version=6.1.4.0, Culture=neutral, PublicKeyToken=f050dff7995aa24a, processorArchitecture=MSIL">
+      <HintPath>..\packages\VelocityDB.6.1.4\lib\net40\VelocityDb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Database.cs" />
+    <Compile Include="UserFormAddClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserFormAddClient.Designer.cs">
+      <DependentUpon>UserFormAddClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Book.cs" />
+    <Compile Include="Client.cs" />
+    <Compile Include="Employee.cs" />
+    <Compile Include="UserFormAddBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserFormAddBook.Designer.cs">
+      <DependentUpon>UserFormAddBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserFormBirthdayReminder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserFormBirthdayReminder.Designer.cs">
+      <DependentUpon>UserFormBirthdayReminder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserFormChoosePerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserFormChoosePerson.Designer.cs">
+      <DependentUpon>UserFormChoosePerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserFormDatePicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserFormDatePicker.Designer.cs">
+      <DependentUpon>UserFormDatePicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserFormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserFormLogin.Designer.cs">
+      <DependentUpon>UserFormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserFormMainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserFormMainWindow.Designer.cs">
+      <DependentUpon>UserFormMainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserFormAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserFormAbout.Designer.cs">
+      <DependentUpon>UserFormAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Person.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThisApplication.cs" />
+    <Compile Include="UserFormRegisterEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserFormRegisterEmployee.Designer.cs">
+      <DependentUpon>UserFormRegisterEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserFormViewBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserFormViewBook.Designer.cs">
+      <DependentUpon>UserFormViewBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserFormViewBooksList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserFormViewBooksList.Designer.cs">
+      <DependentUpon>UserFormViewBooksList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserFormViewDebtors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserFormViewDebtors.Designer.cs">
+      <DependentUpon>UserFormViewDebtors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserFormViewPersonsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserFormViewPersonsList.Designer.cs">
+      <DependentUpon>UserFormViewPersonsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserFormViewPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserFormViewPerson.Designer.cs">
+      <DependentUpon>UserFormViewPerson.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UserFormAbout.resx">
+      <DependentUpon>UserFormAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UserFormAddBook.resx">
+      <DependentUpon>UserFormAddBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserFormAddClient.resx">
+      <DependentUpon>UserFormAddClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserFormBirthdayReminder.resx">
+      <DependentUpon>UserFormBirthdayReminder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserFormChoosePerson.resx">
+      <DependentUpon>UserFormChoosePerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserFormDatePicker.resx">
+      <DependentUpon>UserFormDatePicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserFormLogin.resx">
+      <DependentUpon>UserFormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserFormMainWindow.resx">
+      <DependentUpon>UserFormMainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserFormRegisterEmployee.resx">
+      <DependentUpon>UserFormRegisterEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserFormViewBook.resx">
+      <DependentUpon>UserFormViewBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserFormViewBooksList.resx">
+      <DependentUpon>UserFormViewBooksList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserFormViewDebtors.resx">
+      <DependentUpon>UserFormViewDebtors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserFormViewPersonsList.resx">
+      <DependentUpon>UserFormViewPersonsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserFormViewPerson.resx">
+      <DependentUpon>UserFormViewPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
