@@ -12,6 +12,11 @@ namespace LibraryHelper
 {
     public partial class UserFormBirthdayReminder : Form
     {
+        public enum PersonOutType
+        {
+            Employees, Clients, All
+        }
+
         private class BirthdayInfo
         {
             public ulong PersonId { get; set; }
@@ -20,8 +25,11 @@ namespace LibraryHelper
         }
 
         private Dictionary<Type, List<BirthdayInfo>> birthdaysInfo;
-        public UserFormBirthdayReminder()
+        private PersonOutType outType;
+
+        public UserFormBirthdayReminder(PersonOutType type = PersonOutType.All)
         {
+            outType = type;
             InitializeComponent();
             SendQuery();
             FillBoxes();
@@ -42,7 +50,7 @@ namespace LibraryHelper
                     group new BirthdayInfo
                     {
                         PersonId = person.Id,
-                        Name = person.FirstName,
+                        Name = $"{person.FirstName} {person.LastName}",
                         Age = person.Age.Value
                     }
                     by person.GetType();
@@ -59,18 +67,15 @@ namespace LibraryHelper
 
         private void FillBoxes()
         {
-            if (birthdaysInfo.ContainsKey(typeof(Employee)))
+            foreach (var employee in GetAllBirthdaysInfo())
             {
-                foreach (var employee in birthdaysInfo[typeof(Employee)])
-                {
-                    EmployeesBox.Items.Add($"{employee.Name}: {employee.Age} years old");
-                }
+                EmployeesBox.Items.Add($"{employee.Name}: {employee.Age} years old");
             }
         }
 
         public void ShowIfBirthdaysExists(bool errorBox = false)
         {
-            if (birthdaysInfo.Count != 0)
+            if (PersonsCount() != 0)
             {
                 ShowDialog();
             }
@@ -82,6 +87,35 @@ namespace LibraryHelper
                                 MessageBoxIcon.Information);
                 return;
             }
+        }
+
+        private IEnumerable<BirthdayInfo> GetAllBirthdaysInfo()
+        {
+            switch (outType)
+            {
+                case PersonOutType.All:
+                    return ClientsInfo.Concat(EmployeesInfo);
+                case PersonOutType.Clients:
+                    return ClientsInfo;
+                case PersonOutType.Employees:
+                    return EmployeesInfo;
+            }
+            return null;
+        }
+
+        private IEnumerable<BirthdayInfo> EmployeesInfo => birthdaysInfo.ContainsKey(typeof(Employee)) 
+            ? birthdaysInfo[typeof(Employee)] : new List<BirthdayInfo>();
+
+        private IEnumerable<BirthdayInfo> ClientsInfo => birthdaysInfo.ContainsKey(typeof(Client))
+            ? birthdaysInfo[typeof(Client)] : new List<BirthdayInfo>();
+
+        private int PersonsCount()
+        {
+            var employeesCount = birthdaysInfo.ContainsKey(typeof(Employee)) ? birthdaysInfo[typeof(Employee)].Count : 0;
+            var clientsCount = birthdaysInfo.ContainsKey(typeof(Client)) ? birthdaysInfo[typeof(Client)].Count : 0;
+
+            return (outType != PersonOutType.Clients ? employeesCount : 0) +
+                   (outType != PersonOutType.Employees ? clientsCount : 0);
         }
     }
 }

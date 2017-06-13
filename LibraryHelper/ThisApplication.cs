@@ -14,7 +14,7 @@ namespace LibraryHelper
 
         private ThisApplication()
         {
-            databaseName = "TestDatabase7";
+            databaseName = "LibraryDatabase";
             using (var conn = new SessionNoServer(databaseName))
             {
                 conn.BeginUpdate();

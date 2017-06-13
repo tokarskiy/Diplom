@@ -29,8 +29,8 @@ namespace LibraryHelper
                     Code = codeBox.Text,
                     Name = nameBox.Text,
                     Author = authorBox.Text,
-                    AgeLimit = (int)yearBox.Value,
-                    ReleaseYear = (int)ageLimitBox.Value
+                    AgeLimit = (int)ageLimitBox.Value,
+                    ReleaseYear = (int)yearBox.Value
                 };
                 conn.Persist(currentBook);
                 conn.Commit();
